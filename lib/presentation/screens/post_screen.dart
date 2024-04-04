@@ -42,7 +42,7 @@ class PostDetailScreen extends ConsumerWidget {
             ),
           ),
         ),
-      _ => const LoadingView(),
+      _ => const Scaffold(body: LoadingView()),
     };
   }
 }

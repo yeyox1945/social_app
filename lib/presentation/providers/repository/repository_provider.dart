@@ -13,16 +13,6 @@ Repository repository(RepositoryRef ref) {
 
 @riverpod
 Future<User> user(UserRef ref) async {
-  // return await Future.delayed(
-  //     const Duration(seconds: 2),
-  //     () => User(
-  //         id: 'id',
-  //         fullName: 'fullName',
-  //         alias: 'alias',
-  //         email: 'email',
-  //         profileImage: 'profileImage',
-  //         friends: [],
-  //         posts: []));
   return await ref.read(repositoryProvider).getUser('1');
 }
 

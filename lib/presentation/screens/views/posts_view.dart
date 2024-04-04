@@ -23,8 +23,10 @@ class PostsView extends ConsumerWidget {
               ),
               const SizedBox(height: 30),
               Expanded(
-                  child: ListView.builder(
+                  child: ListView.separated(
                 itemCount: value.length,
+                separatorBuilder: (context, index) =>
+                    const SizedBox(height: 10),
                 itemBuilder: (context, index) {
                   final post = value[index];
 

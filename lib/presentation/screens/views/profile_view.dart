@@ -23,7 +23,9 @@ class ProfileView extends ConsumerWidget {
                 children: [
                   CircleAvatar(
                     radius: 50,
-                    child: Image(image: NetworkImage(value.profileImage)),
+                    child: Image(
+                      image: NetworkImage(value.profileImage),
+                    ),
                   ),
                   Text(
                     value.alias,
