@@ -1,7 +1,7 @@
-import 'package:social_app/data/mock/mock_data.dart';
+import 'package:social_app/data/mock/mock_posts.dart';
+import 'package:social_app/data/mock/mock_users.dart';
 import 'package:social_app/domain/datasource.dart';
-import 'package:social_app/domain/entities/post.dart';
-import 'package:social_app/domain/entities/user.dart';
+import 'package:social_app/domain/entities/entities.dart';
 
 class DatasourceImpl implements Datasource {
   @override
