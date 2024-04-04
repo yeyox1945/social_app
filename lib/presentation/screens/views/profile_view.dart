@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:social_app/data/mock/mock_data.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:social_app/domain/entities/entities.dart';
+import 'package:social_app/presentation/providers/repository/repository_provider.dart';
 
-class ProfileView extends StatelessWidget {
+class ProfileView extends ConsumerWidget {
   const ProfileView({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final User user = ref.watch(repositoryProvider).getUser('1');
+
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
@@ -16,18 +20,18 @@ class ProfileView extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 50,
-                child: Image(image: NetworkImage(users[0].profileImage)),
+                child: Image(image: NetworkImage(user.profileImage)),
               ),
               Text(
-                users.first.alias,
+                user.alias,
                 style:
                     const TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
               ),
               Text(
-                users.first.fullName,
+                user.fullName,
                 style: const TextStyle(fontSize: 20),
               ),
-              Text(users.first.email),
+              Text(user.email),
               const SizedBox(height: 10),
               const Text(
                 'My Friends',
@@ -37,9 +41,9 @@ class ProfileView extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(vertical: 10),
                 height: 250,
                 child: ListView.builder(
-                  itemCount: users.first.friends.length,
+                  itemCount: user.friends.length,
                   itemBuilder: (context, index) {
-                    final friend = users.first.friends[index];
+                    final friend = user.friends[index];
 
                     return ListTile(
                       leading: CircleAvatar(
@@ -59,9 +63,9 @@ class ProfileView extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(vertical: 10),
                 height: 300,
                 child: ListView.builder(
-                  itemCount: users.first.posts.length,
+                  itemCount: user.posts.length,
                   itemBuilder: (context, index) {
-                    final post = users.first.posts[index];
+                    final post = user.posts[index];
 
                     return Container(
                       padding: const EdgeInsets.all(10),

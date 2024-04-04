@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:social_app/data/mock/mock_data.dart';
+import 'package:social_app/domain/entities/entities.dart';
+import 'package:social_app/presentation/providers/repository/repository_provider.dart';
 
-class PostsView extends StatelessWidget {
+class PostsView extends ConsumerWidget {
   const PostsView({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final List<Post> allPosts = ref.watch(repositoryProvider).getAllPosts();
+
     return SafeArea(
       child: Column(
         children: [

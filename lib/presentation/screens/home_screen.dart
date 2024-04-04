@@ -6,10 +6,6 @@ import 'package:social_app/presentation/screens/views/views.dart';
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
-  void onItemTap(int value) {
-
-  }
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currentTab = ref.watch(currentTabProvider);

@@ -1,8 +1,10 @@
+import 'package:social_app/domain/entities/user.dart';
+
 class Post {
   final String id;
   final String title;
   final String body;
-  final String author;
+  final User author;
   final String postImage;
 
   Post(
